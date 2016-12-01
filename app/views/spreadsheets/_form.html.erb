@@ -1,0 +1,32 @@
+<%= form_for(spreadsheet, class: 'js-spreadsheet-form') do |f| %>
+  <% if spreadsheet.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(spreadsheet.errors.count, "error") %> prohibited this spreadsheet from being saved:</h2>
+
+      <ul>
+      <% spreadsheet.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :content %>
+    <%= f.text_area :content %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+  <div id="js-spreadsheet">
+
+  </div>
+
+<% end %>
