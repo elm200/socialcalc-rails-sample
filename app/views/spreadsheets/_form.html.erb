@@ -16,10 +16,7 @@
     <%= f.text_field :title %>
   </div>
 
-  <div class="field">
-    <%= f.label :content %>
-    <%= f.text_area :content %>
-  </div>
+  <%= f.text_area :content, style: 'display: none' %>
 
   <div class="actions">
     <%= f.submit %>
