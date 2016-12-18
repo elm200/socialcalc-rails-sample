@@ -26,49 +26,33 @@ class SpreadsheetsController < ApplicationController
   def create
     @spreadsheet = Spreadsheet.new(spreadsheet_params)
 
-    respond_to do |format|
-      if @spreadsheet.save
-        format.html { redirect_to @spreadsheet, notice: 'Spreadsheet was successfully created.' }
-        format.json { render :show, status: :created, location: @spreadsheet }
-      else
-        format.html { render :new }
-        format.json { render json: @spreadsheet.errors, status: :unprocessable_entity }
-      end
+    if @spreadsheet.save
+      redirect_to @spreadsheet, notice: 'Spreadsheet was successfully created.'
+    else
+      render :new
     end
   end
 
-  # PATCH/PUT /spreadsheets/1
-  # PATCH/PUT /spreadsheets/1.json
   def update
-    respond_to do |format|
-      if @spreadsheet.update(spreadsheet_params)
-        format.html { redirect_to @spreadsheet, notice: 'Spreadsheet was successfully updated.' }
-        format.json { render :show, status: :ok, location: @spreadsheet }
-      else
-        format.html { render :edit }
-        format.json { render json: @spreadsheet.errors, status: :unprocessable_entity }
-      end
+    if @spreadsheet.update(spreadsheet_params)
+      redirect_to @spreadsheet, notice: 'Spreadsheet was successfully updated.'
+    else
+      render :edit
     end
   end
 
-  # DELETE /spreadsheets/1
-  # DELETE /spreadsheets/1.json
   def destroy
     @spreadsheet.destroy
-    respond_to do |format|
-      format.html { redirect_to spreadsheets_url, notice: 'Spreadsheet was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to spreadsheets_url, notice: 'Spreadsheet was successfully destroyed.'
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_spreadsheet
-      @spreadsheet = Spreadsheet.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def spreadsheet_params
-      params.require(:spreadsheet).permit(:title, :content)
-    end
+  def set_spreadsheet
+    @spreadsheet = Spreadsheet.find(params[:id])
+  end
+
+  def spreadsheet_params
+    params.require(:spreadsheet).permit(:title, :content)
+  end
 end
