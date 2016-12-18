@@ -29,7 +29,6 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-# gem 'test1-rails', path: '../test1-rails'
 gem 'socialcalc-rails', path: '../socialcalc-rails'
 # gem 'awesome_print'
 # gem 'hirb'
