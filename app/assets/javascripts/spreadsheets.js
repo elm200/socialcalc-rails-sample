@@ -1,5 +1,8 @@
 $(function() {
-  if ($('#js-spreadsheet')[0]) {
-    $('#js-spreadsheet').socialcalc('.js-spreadsheet-form', '#spreadsheet_content');
-  }
+  $('#js-spreadsheet').socialcalc({
+    form: '#js-spreadsheet-form',
+    content: '#js-spreadsheet-content',
+    width: 1000,
+    height: 600
+  });
 });
