@@ -13,4 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require SocialCalc
+//= require socialcalc_plugin
 //= require_tree .
